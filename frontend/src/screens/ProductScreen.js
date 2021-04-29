@@ -57,7 +57,7 @@ const ProductScreen = ({history,match}) => {
                         <ul className="list-group list-group-flush">
                             <li className="list-group-item"><h3>{product.name}</h3></li>
                             <li className="list-group-item"><Rating value={product.rating} text={`${product.numReviews} reviews`}></Rating></li>
-                            <li className="list-group-item"><h4>Price: ${product.price}</h4></li>
+                            <li className="list-group-item"><h4>Price: ₹{product.price}</h4></li>
                             <li className="list-group-item"><p>{product.description}</p></li>
                         </ul>
                         
@@ -71,7 +71,7 @@ const ProductScreen = ({history,match}) => {
                                             Price:
                                         </div>
                                         <div className="col-md-7">
-                                        ${product.price}
+                                        ₹{product.price}
                                         </div>
                                     </div>
                                 </li>

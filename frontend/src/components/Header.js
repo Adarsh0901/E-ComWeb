@@ -18,9 +18,12 @@ const Header = () => {
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
                     <Link className="navbar-brand mr-auto" to="/">E-Commerce</Link>
-                    <div className="d-flex" id="navbarSupportedContent">
-                        
-                        <ul className="navbar-nav me-2">
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="d-flex">
+                    <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul className="nav navbar-nav me-2">
                             <li className="nav-item">
                                 <Link className="nav-link" to="/cart"><i className="fas fa-shopping-cart"></i> Cart</Link>
                             </li>
@@ -28,7 +31,7 @@ const Header = () => {
                                 {userInfo ? (
                                     <ul>
                                         <li className="dropdown nav-item">
-                                            <Link to="#" className='nav-link'><i className="fas fa-user"></i> &nbsp;{userInfo.name} <i className="fas fa-angle-down"></i></Link>
+                                            <Link to="/" className='nav-link'><i className="fas fa-user"></i> &nbsp;{userInfo.name} <i className="fas fa-angle-down"></i></Link>
                                             <div className="dropdown-content">
                                                 {userInfo.isAdmin ? (
                                                     <>
@@ -49,6 +52,7 @@ const Header = () => {
                             </li>
                         </ul>
                         
+                    </div>
                     </div>
                 </div>
             </nav>

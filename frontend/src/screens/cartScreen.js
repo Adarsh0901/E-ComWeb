@@ -46,7 +46,7 @@ const CartScreen = ({match, location, history}) => {
                                         <Link to={`/product/${items.product}`} style={{textDecoration:'none', color:'black'}}>{items.name}</Link>
                                     </div>
                                     <div className="col-md-2">
-                                        ${items.price}
+                                    ₹{items.price}
                                     </div>
                                     <div className="col-md-2">
                                         <select value={items.qty} onChange={(e) => dispatch(addToCart(items.product, Number(e.target.value)))}>
@@ -71,7 +71,7 @@ const CartScreen = ({match, location, history}) => {
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item" >
                             <h2>SubTotal({cartItems.reduce((acc, item) => acc + item.qty, 0)}) Items</h2>
-                            ${cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}
+                            ₹{cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}
                         </li>
                         <li className='list-group-item'>
                             <button type="button" className="btn btn-dark btn-block" onClick={checkoutHandler} disabled={cartItems.length === 0}>

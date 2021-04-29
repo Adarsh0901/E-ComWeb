@@ -35,6 +35,7 @@ const UserListScreen = ({history}) => {
         <>
             <h1>USERS</h1>
             {loading ? <Loader/> : error ? <Message>{error}</Message>: (
+                <div className="table-responsive">
                 <table className="table table-responsive table-striped table-hover">
                     <thead>
                         <tr>
@@ -68,6 +69,7 @@ const UserListScreen = ({history}) => {
                         ))}
                     </tbody>
                 </table>
+                </div>
             )}
         </>
     )

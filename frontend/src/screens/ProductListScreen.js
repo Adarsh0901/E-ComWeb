@@ -62,6 +62,7 @@ const ProductListScreen = ({history, match}) => {
             {loadingCreate && <Loader/>}
             {errorCreate && <Message>{errorCreate}</Message>}
             {loading ? <Loader/> : error ? <Message>{error}</Message>: (
+                <div className="table-responsive">
                 <table className="table table-responsive table-striped table-hover">
                     <thead>
                         <tr>
@@ -97,6 +98,7 @@ const ProductListScreen = ({history, match}) => {
                         ))}
                     </tbody>
                 </table>
+                </div>
             )}
         </>
     )

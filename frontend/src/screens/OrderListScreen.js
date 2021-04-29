@@ -27,6 +27,7 @@ const OrderListScreen = ({history}) => {
         <>
             <h1>ORDERS</h1>
             {loading ? <Loader/> : error ? <Message>{error}</Message>: (
+                <div className="table-responsive">
                 <table className="table table-responsive table-striped table-hover">
                     <thead>
                         <tr>
@@ -45,7 +46,7 @@ const OrderListScreen = ({history}) => {
                                 <td>{order._id}</td>
                                 <td>{order.user && order.user.name}</td>
                                 <td>{order.createdAt.substring(0,10)}</td>
-                                <td>$ {order.totalPrice}</td>
+                                <td>₹ {order.totalPrice}</td>
                                 <td>{order.isPaid?  order.paidAt.substring(0,10) : (<i className="fas fa-times" style={{color: 'red'}}></i>)}</td>
                                 <td>{order.isDelivered?  order.deliveredAt.substring(0,10) : (<i className="fas fa-times" style={{color: 'red'}}></i>)}</td>
                                 <td>
@@ -55,6 +56,7 @@ const OrderListScreen = ({history}) => {
                         ))}
                     </tbody>
                 </table>
+                </div>
             )}
         </>
     )

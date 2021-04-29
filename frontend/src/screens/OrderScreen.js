@@ -74,7 +74,7 @@ const OrderScreen = ({match, history}) => {
                                                     <Link to={`/product/${items.product}`} style={{textDecoration:'none', color:'black'}}>{items.name}</Link>
                                                 </div>
                                                 <div className="col-md-4">
-                                                    {items.qty} x ${items.price} = ${items.qty * items.price}
+                                                    {items.qty} x ₹{items.price} = ₹{items.qty * items.price}
                                                 </div>
                                             </div>
                                         </li>

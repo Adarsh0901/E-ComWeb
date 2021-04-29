@@ -90,7 +90,9 @@ const ProfileScreen = ({ location, history }) => {
                   <div className="py-2" key={order._id}>
                   <div className="card">
                   <div className="card-header">
-                    <table className="table table-borderless table-responsive table-sm">
+                  <div className="table-responsive">
+                    <table className="table table-borderless table-sm">
+                      
                       <thead>
                         <tr>
                           <th>Order Id: </th>
@@ -110,8 +112,9 @@ const ProfileScreen = ({ location, history }) => {
                           <th>{order.deliveredAt ? order.deliveredAt.substring(0,10): <i className="fas fa-times" style={{color: 'red'}}></i>}</th>
                           <th><Link to={`/order/${order._id}`}><button className="btn btn-outline-info">Detail</button></Link></th>
                         </tr>
-                      </tbody>
+                      </tbody> 
                     </table>
+                    </div>
                     
                   </div>
                   <div className="card-body border-light">
