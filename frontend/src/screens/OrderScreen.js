@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import Message from '../components/message'
 import Loader from '../components/loader'
-import {getOrderDetails, deliveredOrder} from '../actions/orderActions'
-import { ORDER_DELIVERED_RESET } from '../constants/orderConstants'
+import {getOrderDetails, deliveredOrder, paidOrder} from '../actions/orderActions'
+import { ORDER_DELIVERED_RESET , ORDER_PAID_RESET} from '../constants/orderConstants'
 
 const OrderScreen = ({match, history}) => {
 
@@ -28,6 +28,7 @@ const OrderScreen = ({match, history}) => {
 
             if(!order || order._id !== orderId ||successDelivered) {
                 dispatch({type: ORDER_DELIVERED_RESET})
+                dispatch({type: ORDER_PAID_RESET})
                 dispatch(getOrderDetails(orderId))
             }
             // eslint-disable-next-line
@@ -36,6 +37,10 @@ const OrderScreen = ({match, history}) => {
 
     const orderDeliveredHandler = () =>{
         dispatch(deliveredOrder(order))
+    }
+
+    const orderPaidHandler = () =>{
+        dispatch(paidOrder(order))
     }
 
     return loading ? <Loader/> : error ? <Message className="danger"> {error} </Message> : <>
@@ -93,25 +98,25 @@ const OrderScreen = ({match, history}) => {
                             <li className="list-group-item">
                                 <div className="row">
                                     <div className="col">Items</div>
-                                    <div className="col">${order.itemsPrice}</div>
+                                    <div className="col">₹{order.itemsPrice}</div>
                                 </div>
                             </li>
                             <li className="list-group-item">
                                 <div className="row">
                                     <div className="col">Shipping</div>
-                                    <div className="col">${order.shippingPrice}</div>
+                                    <div className="col">₹{order.shippingPrice}</div>
                                 </div>
                             </li>
                             <li className="list-group-item">
                                 <div className="row">
                                     <div className="col">Tax</div>
-                                    <div className="col">${order.taxPrice}</div>
+                                    <div className="col">₹{order.taxPrice}</div>
                                 </div>
                             </li>
                             <li className="list-group-item">
                                 <div className="row">
                                     <div className="col">Total</div>
-                                    <div className="col">${order.totalPrice}</div>
+                                    <div className="col">₹{order.totalPrice}</div>
                                 </div>
                             </li>
                             {loadingDelivered && <Loader/>}
@@ -119,6 +124,11 @@ const OrderScreen = ({match, history}) => {
                             {userInfo && userInfo.isAdmin && !order.isDelivered && (
                             <li className="list-group-item">
                                 <button className="btn btn-dark" onClick={orderDeliveredHandler}>Mark As Delivered</button>
+                            </li>
+                            )}
+                            {userInfo && userInfo.isAdmin && !order.isPaid && order.paymentMethod==='COD' && (
+                            <li className="list-group-item">
+                                <button className="btn btn-success" onClick={orderPaidHandler}>Mark As Paid</button>
                             </li>
                             )}
                         </ul>

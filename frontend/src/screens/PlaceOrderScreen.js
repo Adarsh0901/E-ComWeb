@@ -95,25 +95,25 @@ const PlaceOrderScreen = ({history}) => {
                             <li className="list-group-item">
                                 <div className="row">
                                     <div className="col">Items</div>
-                                    <div className="col">${cart.itemsPrice}</div>
+                                    <div className="col">₹{cart.itemsPrice}</div>
                                 </div>
                             </li>
                             <li className="list-group-item">
                                 <div className="row">
                                     <div className="col">Shipping</div>
-                                    <div className="col">${cart.shippingPrice}</div>
+                                    <div className="col">₹{cart.shippingPrice}</div>
                                 </div>
                             </li>
                             <li className="list-group-item">
                                 <div className="row">
                                     <div className="col">Tax</div>
-                                    <div className="col">${cart.taxPrice}</div>
+                                    <div className="col">₹{cart.taxPrice}</div>
                                 </div>
                             </li>
                             <li className="list-group-item">
                                 <div className="row">
                                     <div className="col">Total</div>
-                                    <div className="col">${cart.totalPrice}</div>
+                                    <div className="col">₹{cart.totalPrice}</div>
                                 </div>
                             </li>
                             <li className="list-group-item">
