@@ -2,6 +2,7 @@ import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../actions/userActions'
+import './Header1.css'
 
 const Header = () => {
 
@@ -21,15 +22,14 @@ const Header = () => {
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="d-flex">
-                    <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                    <div className="collapse navbar-collapse dFlec" id="navbarNavDropdown">
                         <ul className="nav navbar-nav me-2">
                             <li className="nav-item">
                                 <Link className="nav-link" to="/cart"><i className="fas fa-shopping-cart"></i> Cart</Link>
                             </li>
                             <li className="nav-item">
                                 {userInfo ? (
-                                    <ul>
+                                    <ul className="nav navbar-nav me-2">
                                         <li className="dropdown nav-item">
                                             <Link to="/" className='nav-link'><i className="fas fa-user"></i> &nbsp;{userInfo.name} <i className="fas fa-angle-down"></i></Link>
                                             <div className="dropdown-content">
@@ -51,8 +51,6 @@ const Header = () => {
                                 (<Link className="nav-link" to="/login"><i className="fas fa-user"></i> Sign In</Link>)}
                             </li>
                         </ul>
-                        
-                    </div>
                     </div>
                 </div>
             </nav>
