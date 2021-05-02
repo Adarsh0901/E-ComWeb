@@ -11,7 +11,7 @@ const Product = ({product}) => {
                 </Link>
                 <div className="card-body">
                     <Link to={`/product/${product._id}`} style={{textDecoration:'none', color:'black'}}>
-                        <div className="card-title strong">{product.name}</div>
+                        <div className="card-title strong">{product.name.slice(0,40)}</div>
                     </Link>
                     <Rating value={product.rating} text={`${product.numReviews} Reviews `} />
                     <h4>₹{product.price}</h4>

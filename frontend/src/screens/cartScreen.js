@@ -39,16 +39,16 @@ const CartScreen = ({match, location, history}) => {
                         {cartItems.map((items) => (
                             <li className="list-group-item" key={items.product}>
                                 <div className="row">
-                                    <div className="col-md-2">
+                                    <div className="col-md-2 my-2">
                                         <img src={items.image} alt={items.name} className="img-fluid" ></img>
                                     </div>
-                                    <div className="col-md-3">
+                                    <div className="col-md-3 my-2">
                                         <Link to={`/product/${items.product}`} style={{textDecoration:'none', color:'black'}}>{items.name}</Link>
                                     </div>
-                                    <div className="col-md-2">
-                                    ₹{items.price}
+                                    <div className="col-md-2 my-2">
+                                        ₹{items.price}
                                     </div>
-                                    <div className="col-md-2">
+                                    <div className="col-md-2 my-2">
                                         <select value={items.qty} onChange={(e) => dispatch(addToCart(items.product, Number(e.target.value)))}>
                                             {[...Array(items.countInStock).keys()].map((x) => (
 
@@ -58,7 +58,7 @@ const CartScreen = ({match, location, history}) => {
                                             ))}
                                         </select>
                                     </div>
-                                    <div className="col-md-2">
+                                    <div className="col-md-2 my-2">
                                         <button className="btn btn-dark" onClick={() => removeFromCartHandler(items.product)}><i className="fas fa-trash"></i></button>
                                     </div>
                                 </div>

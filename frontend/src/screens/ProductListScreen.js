@@ -78,7 +78,7 @@ const ProductListScreen = ({history, match}) => {
                         {products.map((product) => (
                             <tr key={product._id}>
                                 <td>{product._id}</td>
-                                <td>{product.name}</td>
+                                <td>{product.name.slice(0,30)}</td>
                                 <td>₹{product.price}</td>
                                 <td>{product.category}</td>
                                 <td>{product.brand}</td>

@@ -22,7 +22,7 @@ const Homescreen = () => {
         <>
             <h1>Latest Product</h1>
             {loading ? <Loader/> : error ? <Message varient='danger'>{error}</Message> :  
-                <div className="row">
+                <div className="row container">
                     {products.map(product => (
                         <div key={product._id} className="col-md-3">
                             <Product product={product}/>

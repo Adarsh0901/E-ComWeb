@@ -6,7 +6,7 @@ const Footer = () => {
             <div>
                 <div className="text-center py-2">
                     <hr />
-                    copyright &copy; E-Com
+                    copyright &copy; Amaze-Shop
                 </div>
             </div>
         </footer>

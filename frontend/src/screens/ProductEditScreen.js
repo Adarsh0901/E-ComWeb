@@ -115,12 +115,6 @@ const ProductEditScreen = ({ match, history }) => {
                         <label className="form-label">Description</label>
                         <input type="text" className="form-control" placeholder="Enter description" value={description} onChange={(e) => setDescription(e.target.value)} />
                     </div>
-                    {/* <div className="form-check py-2">
-                        <input className="form-check-input" type="checkbox" id="isadmin" checked={isAdmin} onChange={(e) => setIsAdmin(e.target.checked)}/>
-                        <label className="form-check-label">
-                            Is Admin
-                        </label>
-                    </div> */}
                     <div className="d-grid gap-2 py-2">
                         <button className="btn btn-dark" type='submit' varient='primary'>Update</button>
                     </div>

@@ -45,7 +45,7 @@ const OrderScreen = ({match, history}) => {
 
     return loading ? <Loader/> : error ? <Message className="danger"> {error} </Message> : <>
 
-        <h1>Order: {order._id}</h1>
+        <h4>ORDER ID: {order._id}</h4>
         <div className="row">
                 <div className="col-md-8">
                     <ul className="list-group list-group-flush" >
@@ -121,16 +121,24 @@ const OrderScreen = ({match, history}) => {
                             </li>
                             {loadingDelivered && <Loader/>}
                             {errorDelivered && <Message>{errorDelivered}</Message>}
-                            {userInfo && userInfo.isAdmin && !order.isDelivered && (
-                            <li className="list-group-item">
-                                <button className="btn btn-dark" onClick={orderDeliveredHandler}>Mark As Delivered</button>
-                            </li>
-                            )}
-                            {userInfo && userInfo.isAdmin && !order.isPaid && order.paymentMethod==='COD' && (
-                            <li className="list-group-item">
-                                <button className="btn btn-success" onClick={orderPaidHandler}>Mark As Paid</button>
-                            </li>
-                            )}
+                            <div className="row">
+                                <div className="col-md-6">
+                                    {userInfo && userInfo.isAdmin && !order.isDelivered && (
+                                    <li className="list-group-item">
+                                        <button className="btn btn-dark" onClick={orderDeliveredHandler}>Mark As Delivered</button>
+                                    </li>
+                                    )}
+                                </div>
+                                <div className="col-md-6">
+                                    {userInfo && userInfo.isAdmin && !order.isPaid && order.paymentMethod==='COD' && (
+                                    <li className="list-group-item">
+                                        <button className="btn btn-success" onClick={orderPaidHandler}>Mark As Paid</button>
+                                    </li>
+                                    )}
+                                </div>
+                            </div>
+                            
+                            
                         </ul>
                     </div>
                 </div>

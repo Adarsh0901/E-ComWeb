@@ -18,7 +18,7 @@ const Header = () => {
         <header>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
-                    <Link className="navbar-brand mr-auto" to="/">E-Commerce</Link>
+                    <Link className="navbar-brand mr-auto" to="/">Amaze-Shop</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>

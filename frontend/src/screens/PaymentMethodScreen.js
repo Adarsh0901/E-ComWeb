@@ -42,7 +42,7 @@ const PaymentMethodScreen = ({ history }) => {
                     <div className="form-check">
                         <input className="form-check-input" type="radio" label="COD" name="paymentMethod" id="COD" value="COD" onChange={(e) => setPaymentMethod(e.target.value)}/>
                         <label className="form-check-label">
-                            COD
+                            COD(Case On Delivery)
                         </label>
                     </div>
                 </div>
