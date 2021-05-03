@@ -40,7 +40,10 @@ const Header = () => {
                                                     <Link to="/admin/orderlist"><i className="fas fa-clipboard-list"></i> &nbsp;Orders</Link>
                                                     </>
                                                 ) : (
+                                                    <>
                                                 <Link to="/profile"><i className="far fa-id-card"></i> &nbsp;Profile</Link>
+                                                <Link to="/my-orders"><i className="fas fa-list"></i> &nbsp;Your Orders</Link>
+                                                </>
                                                 )}
                                                 <Link to='/' onClick={logoutHandler}><i className="fas fa-sign-out-alt"></i> &nbsp;Logout</Link>
                                             </div>
