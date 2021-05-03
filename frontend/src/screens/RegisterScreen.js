@@ -9,6 +9,7 @@ import { register } from '../actions/userActions'
 const RegisterScreen = ({ location, history }) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
+    const [gender, setGender] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [message, setMessage] = useState(null)
@@ -31,7 +32,7 @@ const RegisterScreen = ({ location, history }) => {
       if(password !== confirmPassword){
         setMessage('Password do not Match')
       }else{
-        dispatch(register(name,email,password))
+        dispatch(register(name,email,gender,password))
       }
       
     }
@@ -50,6 +51,21 @@ const RegisterScreen = ({ location, history }) => {
                 <div className="form-group" id='email'>
                     <label className="form-label">Email address</label>
                     <input type="email" className="form-control" placeholder="Enter Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                </div>
+                <div className="form-group" id='gender'>
+                    <label as="legend" className="form-label">Gender</label>
+                    <div className="form-check">
+                      <input className="form-check-input" type="radio" label="Male" name="gender" id="male" value="male" checked onChange={(e) => setGender(e.target.value)}/>
+                      <label className="form-check-label">
+                        Male
+                      </label>
+                    </div>
+                    <div className="form-check">
+                      <input className="form-check-input" type="radio" label="Female" name="gender" id="female" value="female" onChange={(e) => setGender(e.target.value)}/>
+                      <label className="form-check-label">
+                        Female
+                      </label>
+                    </div>
                 </div>
                 <div className="form-group py-2" id='password'>
                     <label className="form-label">Password</label>

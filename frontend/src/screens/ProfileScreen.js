@@ -6,7 +6,7 @@ import Loader from '../components/loader'
 import { getUserDetails } from '../actions/userActions'
 import FormContainer from '../components/formContainer'
 
-const ProfileScreen = ({ location, history }) => {
+const ProfileScreen = ({ location,history }) => {
   
     const dispatch = useDispatch()
   
@@ -16,17 +16,18 @@ const ProfileScreen = ({ location, history }) => {
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
   
+    const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
+    const { success } = userUpdateProfile
   
     useEffect(() => {
       if (!userInfo) {
         history.push('/login')
       }else{
-        if(!user.name){
-        dispatch(getUserDetails('profile'))
+       if(!user.name){
+          dispatch(getUserDetails('profile'))
+        }
       }
-      }
-    }, [dispatch,history, userInfo, user])
-
+    }, [dispatch,history, userInfo, user,success])
 
     return (
       <FormContainer>
@@ -37,13 +38,24 @@ const ProfileScreen = ({ location, history }) => {
           <div className="card-header">
             USER DETAIL
           </div>
+          {user.gender==='male' ? (
           <div className="text-center my-3">
             <img src="/images/avatar.jpeg" className="img-fluid rounded" alt="avatar" style={{height:'100px', width:'100px'}} />
           </div>
+          ) : user.gender==='female' ? (
+            <div className="text-center my-3">
+            <img src="/images/avatar-female.jpeg" className="img-fluid rounded" alt="avatar" style={{height:'100px', width:'100px'}} />
+          </div>
+          ) : (
+            <div className="text-center my-3">
+            <img src="/images/avatar.jpeg" className="img-fluid rounded" alt="avatar" style={{height:'100px', width:'100px'}} />
+          </div>
+          )}
           <div className="card-body">
             <h2 className="card-title">Name: {user.name}</h2>
             <h5 className="card-text">Email: {user.email}</h5>
             <h5 className="card-text">Phone: phonenohere</h5>
+            <h5 className="card-text">Gender: {user.gender}</h5>
             <h6 className="card-text text-muted">Created At: {user.createdAt}</h6>
             <Link to="/update-user" className="btn btn-primary my-2">Update profile</Link>
           </div>

@@ -11,6 +11,7 @@ const UserEditScreen = ({ match, history }) => {
     const userId = match.params.id
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
+    const [gender, setGender] = useState('')
     const [isAdmin, setIsAdmin] = useState(false)
 
     const dispatch = useDispatch()
@@ -32,6 +33,7 @@ const UserEditScreen = ({ match, history }) => {
             }else{
                 setName(user.name)
                 setEmail(user.email)
+                setGender(user.gender)
                 setIsAdmin(user.isAdmin)
             }
         }
@@ -39,7 +41,7 @@ const UserEditScreen = ({ match, history }) => {
   
     const submitHandler = (e) => {
       e.preventDefault()
-      dispatch(updateUsers({_id: userId,name,email,isAdmin}))
+      dispatch(updateUsers({_id: userId,name,email,gender,isAdmin}))
     }
 
     return (
@@ -56,6 +58,21 @@ const UserEditScreen = ({ match, history }) => {
                     <div className="form-group py-2" id='email'>
                         <label className="form-label">Email address</label>
                         <input type="email" className="form-control" placeholder="Enter Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    </div>
+                    <div className="form-group" id='gender'>
+                        <label as="legend" className="form-label">Gender</label>
+                        <div className="form-check">
+                            <input className="form-check-input" type="radio" label="Male" name="gender" id="male" value="male" onChange={(e) => setGender(e.target.value)}/>
+                            <label className="form-check-label">
+                            Male
+                            </label>
+                        </div>
+                            <div className="form-check">
+                            <input className="form-check-input" type="radio" label="Female" name="gender" id="female" value="female" onChange={(e) => setGender(e.target.value)}/>
+                            <label className="form-check-label">
+                            Female
+                            </label>
+                        </div>
                     </div>
                     <div className="form-check py-2">
                         <input className="form-check-input" type="checkbox" id="isadmin" checked={isAdmin} onChange={(e) => setIsAdmin(e.target.checked)}/>

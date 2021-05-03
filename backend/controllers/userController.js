@@ -13,6 +13,7 @@ const authUser = asyncHandler(async(req,res) =>{
             _id: user._id,
             name: user.name,
             email: user.email,
+            gender: user.gender,
             isAdmin: user.isAdmin,
             token: generateToken(user._id),
         })
@@ -24,7 +25,7 @@ const authUser = asyncHandler(async(req,res) =>{
 
 // Register a New user
 const registerUser = asyncHandler(async(req,res) =>{
-  const {name,email,password} = req.body
+  const {name,email,password,gender} = req.body
 
   const userExits = await User.findOne({ email  })
 
@@ -37,6 +38,7 @@ const registerUser = asyncHandler(async(req,res) =>{
     name,
     email,
     password,
+    gender,
   })
 
   if(user){
@@ -44,6 +46,7 @@ const registerUser = asyncHandler(async(req,res) =>{
       _id: user._id,
       name: user.name,
       email: user.email,
+      gender: user.gender,
       isAdmin: user.isAdmin,
       token: generateToken(user._id),
     })
@@ -63,6 +66,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      gender: user.gender,
       isAdmin: user.isAdmin,
       createdAt: user.createdAt,
       updatedAt: user.updatedAt,
@@ -80,6 +84,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   if (user) {
     user.name = req.body.name || user.name
     user.email = req.body.email || user.email
+    user.gender = req.body.gender || user.gender
     if (req.body.password) {
       user.password = req.body.password
     }
@@ -90,6 +95,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       _id: updatedUser._id,
       name: updatedUser.name,
       email: updatedUser.email,
+      gender: updatedUser.gender,
       token: generateToken(updatedUser._id),
     })
   } else {
@@ -139,6 +145,7 @@ const updateUser = asyncHandler(async (req, res) => {
   if (user) {
     user.name = req.body.name || user.name
     user.email = req.body.email || user.email
+    user.gender = req.body.gender || user.gender
     user.isAdmin = req.body.isAdmin
 
     const updatedUser = await user.save()
@@ -147,6 +154,7 @@ const updateUser = asyncHandler(async (req, res) => {
       _id: updatedUser._id,
       name: updatedUser.name,
       email: updatedUser.email,
+      gender: updatedUser.gender,
       isAdmin: updatedUser.isAdmin
     })
   } else {
