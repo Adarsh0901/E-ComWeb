@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
+import PhoneInput from  'react-phone-number-input'
 import Message from '../components/message'
 import Loader from '../components/loader'
 import FormContainer from '../components/formContainer' 
@@ -11,6 +12,7 @@ const RegisterScreen = ({ location, history }) => {
     const [email, setEmail] = useState('')
     const [gender, setGender] = useState('')
     const [password, setPassword] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [message, setMessage] = useState(null)
   
@@ -32,7 +34,7 @@ const RegisterScreen = ({ location, history }) => {
       if(password !== confirmPassword){
         setMessage('Password do not Match')
       }else{
-        dispatch(register(name,email,gender,password))
+        dispatch(register(name,email,phoneNumber,gender,password))
       }
       
     }
@@ -48,6 +50,7 @@ const RegisterScreen = ({ location, history }) => {
                     <label className="form-label">Name</label>
                     <input type="name" className="form-control" placeholder="Enter Name" value={name} onChange={(e) => setName(e.target.value)} />
                 </div>
+                <div className="my-2"><PhoneInput placeholder="Enter Phone Number" value={phoneNumber} onChange={setPhoneNumber}/></div>
                 <div className="form-group" id='email'>
                     <label className="form-label">Email address</label>
                     <input type="email" className="form-control" placeholder="Enter Email" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -55,7 +58,7 @@ const RegisterScreen = ({ location, history }) => {
                 <div className="form-group" id='gender'>
                     <label as="legend" className="form-label">Gender</label>
                     <div className="form-check">
-                      <input className="form-check-input" type="radio" label="Male" name="gender" id="male" value="male" checked onChange={(e) => setGender(e.target.value)}/>
+                      <input className="form-check-input" type="radio" label="Male" name="gender" id="male" value="male" onChange={(e) => setGender(e.target.value)}/>
                       <label className="form-check-label">
                         Male
                       </label>

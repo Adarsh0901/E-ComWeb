@@ -43,6 +43,7 @@ const UserListScreen = ({history}) => {
                             <th>NAME</th>
                             <th>EMAIL</th>
                             <th>GENDER</th>
+                            <th>PHONE NUMBER</th>
                             <th>ADMIN</th>
                             <th></th>
                         </tr>
@@ -54,6 +55,7 @@ const UserListScreen = ({history}) => {
                                 <td>{user.name}</td>
                                 <td><a href={`mailto:${user.email}`}>{user.email}</a></td>
                                 <td>{user.gender}</td>
+                                <td>{user.phoneNumber}</td>
                                 <td>{user.isAdmin ?  (<i className="fas fa-check" style={{color: 'green'}}></i>) : (<i className="fas fa-times" style={{color: 'red'}}></i>)}</td>
                                 <td>
                                     <Link to={`/admin/user/${user._id}/edit`}>

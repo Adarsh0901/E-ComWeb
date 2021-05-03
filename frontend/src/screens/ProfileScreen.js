@@ -54,7 +54,7 @@ const ProfileScreen = ({ location,history }) => {
           <div className="card-body">
             <h2 className="card-title">Name: {user.name}</h2>
             <h5 className="card-text">Email: {user.email}</h5>
-            <h5 className="card-text">Phone: phonenohere</h5>
+            <h5 className="card-text">Phone: {user.phoneNumber}</h5>
             <h5 className="card-text">Gender: {user.gender}</h5>
             <h6 className="card-text text-muted">Created At: {user.createdAt}</h6>
             <Link to="/update-user" className="btn btn-primary my-2">Update profile</Link>

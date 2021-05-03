@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-
+import PhoneInput from  'react-phone-number-input'
 import {useDispatch, useSelector} from 'react-redux'
 import Message from '../components/message'
 import Loader from '../components/loader'
@@ -12,6 +12,7 @@ const UserEditScreen = ({ match, history }) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [gender, setGender] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
     const [isAdmin, setIsAdmin] = useState(false)
 
     const dispatch = useDispatch()
@@ -34,6 +35,7 @@ const UserEditScreen = ({ match, history }) => {
                 setName(user.name)
                 setEmail(user.email)
                 setGender(user.gender)
+                setPhoneNumber(user.phoneNumber)
                 setIsAdmin(user.isAdmin)
             }
         }
@@ -41,7 +43,7 @@ const UserEditScreen = ({ match, history }) => {
   
     const submitHandler = (e) => {
       e.preventDefault()
-      dispatch(updateUsers({_id: userId,name,email,gender,isAdmin}))
+      dispatch(updateUsers({_id: userId,name,email,phoneNumber,gender,isAdmin}))
     }
 
     return (
@@ -59,6 +61,7 @@ const UserEditScreen = ({ match, history }) => {
                         <label className="form-label">Email address</label>
                         <input type="email" className="form-control" placeholder="Enter Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
+                    <div className="my-2"><PhoneInput placeholder="Enter Phone Number" value={phoneNumber} onChange={setPhoneNumber}/></div>
                     <div className="form-group" id='gender'>
                         <label as="legend" className="form-label">Gender</label>
                         <div className="form-check">
