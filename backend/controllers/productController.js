@@ -3,7 +3,14 @@ import Product from '../models/productModel.js'
 
 // Fetch All Products in localhost:4000/api/products
 const getProducts = asyncHandler(async(req,res) =>{
-    const products = await Product.find({})
+    const keyword = req.query.keyword ? {
+        name:{
+            $regex: req.query.keyword,
+            $options: 'i'
+        }
+    } : {}
+
+    const products = await Product.find({...keyword})
 
     res.json(products)
 })

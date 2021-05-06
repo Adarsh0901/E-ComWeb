@@ -5,7 +5,9 @@ import {listProducts} from '../actions/productActions'
 import Loader from '../components/loader'
 import Message from '../components/message'
 
-const Homescreen = () => {
+const Homescreen = ({match}) => {
+
+    const keyword = match.params.keyword
 
     const dispatch = useDispatch()
 
@@ -13,14 +15,14 @@ const Homescreen = () => {
     const {loading, error, products} = productList
 
     useEffect(() => {
-        dispatch(listProducts())
-    },[dispatch])
+        dispatch(listProducts(keyword))
+    },[dispatch,keyword])
 
 
 
     return (
         <>
-            <h1>Latest Product</h1>
+            <strong><h1>Latest Product</h1></strong>
             {loading ? <Loader/> : error ? <Message varient='danger'>{error}</Message> :  
                 <div className="row container">
                     {products.map(product => (

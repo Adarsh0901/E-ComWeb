@@ -7,7 +7,7 @@ const Product = ({product}) => {
         <div>
             <div className="card my-3 p-3 rounded" style={{height: '100%'}}>
                 <Link to={`/product/${product._id}`}>
-                    <img src={product.image} className="card-img-top" alt={product.name}/>
+                    <img src={product.image} className="card-img-top img-fluid" alt={product.name} style={{height:'150px',width:'300px'}} />
                 </Link>
                 <div className="card-body">
                     <Link to={`/product/${product._id}`} style={{textDecoration:'none', color:'black'}}>

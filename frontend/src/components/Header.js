@@ -1,4 +1,6 @@
 import React from 'react'
+import {Route} from 'react-router-dom'
+import SearchBox from './SearchBox'
 import {useDispatch, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../actions/userActions'
@@ -22,8 +24,10 @@ const Header = () => {
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="collapse navbar-collapse dFlec" id="navbarNavDropdown">
-                        <ul className="nav navbar-nav me-2">
+                    
+                    <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                        <Route render={({history}) => <SearchBox history = {history}/>} />
+                        <ul className="nav navbar-nav me-2 dFlec">
                             <li className="nav-item">
                                 <Link className="nav-link" to="/cart"><i className="fas fa-shopping-cart"></i> Cart</Link>
                             </li>

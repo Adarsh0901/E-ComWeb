@@ -1,10 +1,10 @@
 .dFlec{
-    margin-left: 600px;
+    margin-left: 250px;
 }
 
 @media only screen and (min-width:1200px){
     .dFlec{
-        margin-left: 900px;
+        margin-left: 600px;
     }
 }
 

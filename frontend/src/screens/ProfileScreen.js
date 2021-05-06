@@ -6,7 +6,7 @@ import Loader from '../components/loader'
 import { getUserDetails } from '../actions/userActions'
 import FormContainer from '../components/formContainer'
 
-const ProfileScreen = ({ location,history }) => {
+const ProfileScreen = ({history }) => {
   
     const dispatch = useDispatch()
   
@@ -27,7 +27,7 @@ const ProfileScreen = ({ location,history }) => {
           dispatch(getUserDetails('profile'))
         }
       }
-    }, [dispatch,history, userInfo, user,success])
+    }, [dispatch,history, userInfo, user ,success])
 
     return (
       <FormContainer>
